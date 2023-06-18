@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",  
-    "build": "npm install"
+    "build": "netlify deploy --prod",
+    "start": "nodemon ./function/app.js"
   },
   "author": "",
   "license": "ISC",

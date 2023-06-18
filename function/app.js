@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 const serverless = require('serverless-http');
+
+const router = express.Router();
+const app = express();
 app.use(express.json());
 // Import the MongoClient class and generate a client from an SRV connection string
 
@@ -31,7 +33,7 @@ const internsips = new mongoose
 const Internship = mongoose.model('Internship', internsips);
 
 //post new internship
-app.post('/internship', (req, res) => {
+router.post('/internship', (req, res) => {
     const newInternship = new Internship(req.body);
     newInternship.save()
       .then(internship => res.status(201).json(internship))
